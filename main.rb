@@ -12,3 +12,24 @@ num_players.times do |i|
   players << {name: name, points: 0}
 end
 
+loop do
+  system 'clear'
+
+  # show scoreboard
+  players.each do |player|
+    puts "#{player[:name]}: \t#{player[:points]} |  (#{11000 - player[:points]})"
+  end
+  puts "\n"
+
+  players.each do |player|
+    roll_num = 1
+    keep_going = true
+
+    while keep_going
+      print "Roll #{roll_num}: "
+      roll_value = gets.chomp.to_i
+    end
+    
+  end
+  
+end
