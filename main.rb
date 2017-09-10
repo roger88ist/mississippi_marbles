@@ -19,7 +19,7 @@ loop do
     system 'clear'
 
     # show scoreboard
-    players.each do |player|
+    players.sort_by{ |p| p.points }.reverse.each do |player|
       puts "#{player.name}: \t#{player.points} |  (#{11000 - player.points})"
     end
     puts "\n"
@@ -32,7 +32,11 @@ loop do
     turn_score = 0
     while keep_going
 
-      print "Roll #{roll_num}: "
+      if roll_num > 1
+        puts "Roll #{roll_num}: (#{turn_score})"
+      else
+        puts "Roll #{roll_num}:"
+      end
       roll_value = gets.chomp
 
       if roll_value == "0"
